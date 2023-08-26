@@ -21,22 +21,24 @@ export const ExpenseForm = () => {
             amount:enteredAmount,
             date:new Date(enteredDate),
         }
-        console.log(eventData);
+        setEnteredTitle('');
+        setEnteredAmount(0);
+        setEnteredDate('');
     }
     return (
             <form onSubmit={onSubmitHandler}>
                 <div className="new-expense__controls">
                     <div className="new-expense__control">
                         <label>Title</label>
-                        <input onChange={titleChangeHandler} type="text"/>
+                        <input onChange={titleChangeHandler} type="text" value={enteredTitle}/>
                     </div>
                     <div className="new-expense__control">
                         <label>Amount</label>
-                        <input onChange={amountChangeHandler} type="number" min="0.01" step="0.01"/>
+                        <input onChange={amountChangeHandler} type="number" min="0.01" step="0.01" value={enteredAmount}/>
                     </div>
                     <div className="new-expense__control">
                         <label>Date</label>
-                        <input onChange={dateChangeHandler} type="date" min="2019-01-01" step="2021-12-31"/>
+                        <input onChange={dateChangeHandler} type="date" min="2019-01-01" step="2021-12-31" value={enteredDate}/>
                     </div>
                 </div>
                 <div className="new-expense__actions">
